@@ -7,6 +7,11 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="update">Update</string>
-    <string name="text_about_us">As a ministry in the reformed tradition, we wholeheartedly affirm the great Reformation principles: that we live under the authority of Scripture alone—our only infallible rule of faith and practice; that salvation is by grace alone through faith in Christ alone—the only way to eternal life; and that all we are and do is for the glory of the triune God alone—the blessed and only Ruler, from whom and through whom and to whom are all things.</string>
+    <string name="text_about_us">Welcome to FunAllTime</string>
     <string name="android_icon">Android Icon</string>
+    <string name="sub_description">FunAllTime is an Android Application which called Event Tracking Application</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password:</string>
+    <string name="new_password">New Password:</string>
+    <string name="confirm_password">Retype New Password:</string>
 </resources>

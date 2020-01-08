@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.funalltimeapplication.Data.Entity.User;
 import com.example.funalltimeapplication.R;
+import com.example.funalltimeapplication.UserChangePassword.UserChangePasswordFragment;
 
 import java.util.List;
 
@@ -23,8 +25,9 @@ public class EditUserProfileFragment extends Fragment {
 
     private String userName;
     EditText editFirstName, editLastName, editEmail;
-    Button buttonUpdate;
+    Button buttonUpdate, buttonChangePassword;
     EditUserProfileViewModel editUserProfileViewModel;
+    TextView textGone;
 
     public EditUserProfileFragment(){
 
@@ -45,6 +48,8 @@ public class EditUserProfileFragment extends Fragment {
         editLastName = view.findViewById(R.id.editLastName);
         editEmail = view.findViewById(R.id.editEmail);
         buttonUpdate = view.findViewById(R.id.btnUpdate);
+        //textGone = view.findViewById(R.id.txtVisible);
+        buttonChangePassword = view.findViewById(R.id.btnChangePassword);
 
         editUserProfileViewModel = ViewModelProviders.of(this).get(EditUserProfileViewModel.class);
 
@@ -61,6 +66,7 @@ public class EditUserProfileFragment extends Fragment {
         if(editUserProfileViewModel.findUser(userName).getUsername().equals(userName)){
             User user = editUserProfileViewModel.findUser(userName);
 
+            //textGone.setText(user.getUsername());
             editFirstName.setText(user.getFirstName());
             editLastName.setText(user.getLastName());
             editEmail.setText(user.getEmail());
@@ -80,6 +86,18 @@ public class EditUserProfileFragment extends Fragment {
                 editUserProfileViewModel.updateUser(user);
             }
 
+        });
+
+        buttonChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserChangePasswordFragment userChangePasswordFragment = new UserChangePasswordFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("userId", userName);
+                userChangePasswordFragment.setArguments(bundle);
+
+                getFragmentManager().beginTransaction().addToBackStack(null).replace(getId(), userChangePasswordFragment).commit();
+            }
         });
 
         return view;
