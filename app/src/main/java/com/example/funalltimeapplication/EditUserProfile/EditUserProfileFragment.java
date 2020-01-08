@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -84,6 +85,8 @@ public class EditUserProfileFragment extends Fragment {
                 user.setEmail(editEmail.getText().toString());
 
                 editUserProfileViewModel.updateUser(user);
+                Toast.makeText(getActivity(), "Updated Successfully",
+                        Toast.LENGTH_LONG).show();
             }
 
         });
