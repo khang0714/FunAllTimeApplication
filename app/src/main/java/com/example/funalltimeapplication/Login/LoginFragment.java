@@ -61,9 +61,9 @@ public class LoginFragment extends Fragment {
                     EditUserProfileFragment editUserProfileFragment = new EditUserProfileFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("userId", editUsername.getText().toString());
-                    editUserProfileFragment.setArguments(bundle);
+                    editUserProfileFragment.setArguments(bundle);;
 
-                    getFragmentManager().beginTransaction().replace(getId(), editUserProfileFragment).commit();
+                    getFragmentManager().beginTransaction().addToBackStack(null).replace(getId(), editUserProfileFragment).commit();
                 }
 
             }
